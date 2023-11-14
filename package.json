@@ -33,6 +33,7 @@
   "dependencies": {
     "@api/payswifter": "file:.api/apis/payswifter",
     "api": "^6.1.1",
-    "axios": "^1.6.1"
+    "axios": "^1.6.1",
+    "supabase": "^1.112.0"
   }
 }
