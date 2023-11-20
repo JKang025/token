@@ -22,3 +22,8 @@ export const GET: RequestHandler = async () => {
 	);
 	return json(data);
 };
+
+/*
+status: 401
+data: { message: 'authentication error' }
+*/
