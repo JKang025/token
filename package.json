@@ -32,8 +32,13 @@
   "type": "module",
   "dependencies": {
     "@api/payswifter": "file:.api/apis/payswifter",
+    "@supabase/auth-helpers-sveltekit": "^0.10.7",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/auth-ui-svelte": "^0.2.8",
+    "@supabase/supabase-js": "^2.38.4",
     "api": "^6.1.1",
     "axios": "^1.6.1",
+    "qrcodejs": "^1.0.0",
     "supabase": "^1.112.0"
   }
 }
