@@ -21,6 +21,7 @@
 		text-decoration: none;
 		display: inline-block;
 		font-size: 16px;
+		width:100%;
 	}
 	.fill {
 		background-color: #2c8152;
