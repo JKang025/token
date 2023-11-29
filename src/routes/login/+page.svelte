@@ -44,16 +44,11 @@
 		}}
 	>
 		<div id="email-wrapper" class="center">
-			<TextInput bind:value={email} name="email" placeholder="Email" verification="email" />
+			<TextInput bind:value={email} name="email" placeholder="Email" />
 		</div>
 
 		<div id="password-wrapper" class="center">
-			<TextInput
-				bind:value={password}
-				name="password"
-				placeholder="Password"
-				verification="password"
-			/>
+			<TextInput bind:value={password} name="password" placeholder="Password" />
 		</div>
 
 		<div id="button-wrapper">

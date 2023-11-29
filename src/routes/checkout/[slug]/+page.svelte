@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	export let data;
 	import { amountStore } from '../../signup/stores.js';
+	let { supabase } = data;
+	$: ({ supabase } = data);
 
 	const startSession = (token: string) => {
 		// @ts-ignore
@@ -32,6 +34,15 @@
 					}
 				}).then((res) => res.json());
 				$amountStore = res2.charge.amount / 100; // fees + order total_amount + tip
+				await supabase.from('transactions').insert([
+					{
+						full_name: `Customer ${Math.floor(Math.random() * 10000)}`,
+						phone: response.consumer.phone,
+						amount: $amountStore,
+						track_number: res.order.track_number,
+						timestamp: res.order.create_date
+					}
+				]);
 				goto('/success');
 			},
 			// @ts-ignore

@@ -14,5 +14,11 @@ export const load = async ({ locals: { supabase, getSession } }) => {
 		.eq('id', session.user.id)
 		.single();
 
-	return { session, profile };
+	// get data and rename variable
+	const { data: transactions } = await supabase
+		.from('transactions')
+		.select('id, full_name, amount, timestamp')
+		.order('timestamp', { ascending: false });
+
+	return { session, profile, transactions };
 };

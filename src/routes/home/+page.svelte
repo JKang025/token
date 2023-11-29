@@ -3,7 +3,6 @@
 	import Button from '../../components/Button.svelte';
 	import PaymentInfo from '../../components/PaymentInfo.svelte';
 	import { goto } from '$app/navigation';
-	export let shop = 'Med Men';
 
 	function createOrder() {
 		goto('/order');
@@ -19,9 +18,18 @@
 	<h1>Welcome{data.profile?.full_name ? `, ${data.profile?.full_name}` : ''}!</h1>
 </header>
 <main>
-	<PaymentInfo />
-	<PaymentInfo />
-	<PaymentInfo />
+	{#if !data.transactions || data.transactions.length === 0}
+		<p>No transactions yet</p>
+	{:else}
+		{#each data.transactions as transaction}
+			<PaymentInfo
+				id={transaction.id}
+				customer={transaction.full_name}
+				amount={transaction.amount}
+				date={new Date(transaction.timestamp)}
+			/>
+		{/each}
+	{/if}
 </main>
 <div class="footer">
 	<Button isLink onClick={() => createOrder()} title="Create New Order" />

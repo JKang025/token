@@ -6,7 +6,7 @@
 	export let data;
 </script>
 
-{#if data.business}
+{#if data.id}
 	<header>
 		<div class="back">
 			<a href="/home">
@@ -594,9 +594,9 @@
 	<div class="date">{new Date().toLocaleDateString('en-US')}</div>
 </main>
 
-{#if data.business}
+{#if data.id}
 	<div class="footer">
-		<Button href="/home" title="View Detailed Report" />
+		<Button href={`/report/${data.id}`} title="View Detailed Report" />
 	</div>
 {/if}
 

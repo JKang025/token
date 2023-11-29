@@ -1,9 +1,26 @@
-<script>
+<script lang="ts">
 	import QRCode from './QRJS.svelte';
 	import Button from '../../../components/Button.svelte';
 	import X from '../../../components/X.svelte';
 	import { amountStore } from '../../signup/stores';
+	import { goto } from '$app/navigation';
 	export let data;
+	let { session, supabase } = data;
+	$: ({ session, supabase } = data);
+
+	const handleInserts = (payload: any) => {
+		$amountStore = payload.new.amount;
+		goto(`/success?id=${payload.new.id}`);
+	};
+
+	supabase
+		.channel('transactions')
+		.on(
+			'postgres_changes',
+			{ event: 'INSERT', schema: 'public', table: 'transactions' },
+			handleInserts
+		)
+		.subscribe();
 </script>
 
 <header>
@@ -22,9 +39,10 @@
 	<div class="price">${$amountStore.toFixed(2)}</div>
 	<div class="date">{new Date().toLocaleDateString('en-US')}</div>
 </main>
-<div class="footer">
+
+<!-- <div class="footer">
 	<Button href="/success?t=business" fill={true} title="Scan Complete" />
-</div>
+</div> -->
 
 <style>
 	header {
@@ -50,6 +68,9 @@
 		justify-content: center;
 		width: 100%;
 		padding: 1rem;
+
+		margin-top: auto;
+		margin-bottom: auto;
 	}
 	h3 {
 		color: black;
@@ -65,9 +86,9 @@
 		padding: 1rem;
 		color: #6e6e6e;
 	}
-	.footer {
+	/* .footer {
 		width: 100%;
 		box-sizing: border-box;
 		padding: 2rem 1.25rem;
-	}
+	} */
 </style>
