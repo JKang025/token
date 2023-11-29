@@ -22,8 +22,10 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
  
         
     </div>
+    <input type="file" accept="image/*" />
 
     <div id="button-wrapper">
+
         <Button onClick={proceed} title="Upload ID"/>
     </div>
 </div>
