@@ -70,10 +70,15 @@ import Button from '../components/Button.svelte';
 
 	#img-wrapper{
 		width:100%;
+		overflow: hidden;
 	}
 	
 	#photo{
-
+		max-width: 100%;
+    	height: auto;
+	}
+	#big-container{
+		width:100%;
 	}
 	
 </style>
