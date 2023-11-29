@@ -17,7 +17,6 @@
     <div id="sub-text">
         <p>These Persona Terms of Use (this “Agreement”) is entered into by and between Persona Identities, Inc. (“Persona”) and the entity or person placing an order for or accessing the Persona Services (“Customer” or “you”). This Agreement consists of the terms and conditions set forth below, any exhibits or addenda identified below and any Order Forms. If you are accessing or using the Persona Services on behalf of your company, you represent that you are authorized to accept this Agreement on behalf of your company, and all references to “you” or “Customer” reference your company. <br><br>
             Please note that Persona may modify the terms and conditions of this Agreement in accordance with Section 13.8 (Amendments; Waivers).
-            <br><br>BY INDICATING YOUR ACCEPTANCE OF THIS AGREEMENT OR ACCESSING OR USING THE PERSONA SERVICES, YOU ARE FULLY AGREEING WITH OUR TERMS AND SERVICES. </p>
     </div>
     <div id="button-wrapper">
         <Button onClick={proceed} title="Agree to TOS" />
