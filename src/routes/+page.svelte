@@ -74,8 +74,11 @@ import Button from '../components/Button.svelte';
 	}
 	
 	#photo{
-		max-width: 100%;
+		width: 100%;
+		height: 100%;
     	height: auto;
+		object-fit: contain;
+    	object-position: center;
 	}
 	#big-container{
 		width:100%;
