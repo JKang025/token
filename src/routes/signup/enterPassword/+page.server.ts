@@ -36,7 +36,7 @@ export const actions = {
 
     
 
-        throw redirect(303, "/signup/enterPhone")
+        throw redirect(303, "/verify")
 
 	}
 }
