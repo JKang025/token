@@ -32,7 +32,7 @@
 
 
 
-<form on:submit|preventDefault={handleSubmit}>
+<form id="form" on:submit|preventDefault={handleSubmit}>
     <div id="big-container">
    
         <HeaderInfo title="Enter your phone" subtitle="We will need to verify that it's you!"/>
@@ -77,5 +77,8 @@
     .error-message {
         color: red;
         font-size: 14px;
+    }
+    #form{
+        width:100%;
     }
 </style>

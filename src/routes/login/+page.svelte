@@ -96,5 +96,8 @@
         color: red;
         font-size: 14px;
     }
+    #big-container{
+        width:100%;
+    }
 </style>
 

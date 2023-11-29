@@ -17,7 +17,7 @@
     
 </script>
 
-<form on:submit|preventDefault={handleSubmit}>
+<form id="form" on:submit|preventDefault={handleSubmit}>
     <HeaderInfo title="Enter your details" subtitle="You’ll never have to do this again."/>
     
     <div id="big-container">
@@ -57,6 +57,9 @@
     }
     #last-wrapper{
         margin-bottom: 350px;;
+    }
+    #form{
+        width:100%;
     }
 </style>
 
