@@ -13,7 +13,7 @@
     
     
     <div id="img-wrapper">
-        <img src="/photos/bank.png">
+        <img src="/photos/bank.png" id="img">
     </div>
     <div id="main-text">
         <p>Link your bank</p>
@@ -36,6 +36,7 @@
         width:100%;
     }
 
+
      #main-text, #sub-text{
         margin-left: 7.5%;
         margin-right:7.5%;
@@ -47,6 +48,10 @@
         width: 100%;
         display: flex;
         justify-content: center;
+    }
+
+    #img{
+        height: 250px;
     }
 
     #main-text{

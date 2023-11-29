@@ -59,7 +59,7 @@
     }
 
     #img-wrapper{
-        margin-top: 10%;
+        margin-top: 3.5%;
     }
 
 
