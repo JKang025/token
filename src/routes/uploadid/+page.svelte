@@ -1,10 +1,20 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
     import Button from "../../components/Button.svelte";
-import HeaderInfo from "../../components/HeaderInfo.svelte";
+    import HeaderInfo from "../../components/HeaderInfo.svelte";
+
+    let fileInput: HTMLInputElement = {} as HTMLInputElement;
+
+    function handleFileChange() {
+        if (fileInput && fileInput.files && fileInput.files.length > 0) {
+            goto('/uploadphoto');
+        }
+    }
 
     function proceed(){
-        goto('/uploadphoto')
+        if(fileInput){
+            fileInput.click();
+        }
     }
 </script>
 
@@ -19,16 +29,19 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
     <div id="sub-text">
         <p>You will need a government issued ID. This includes:<br><br>&nbsp&bull;Passport<br>&nbsp&bull;Driver's License<br>&nbsp&bull;States ID</p>
         
- 
-        
     </div>
 
+    
     <div id="button-wrapper">
-        <Button onClick={proceed} title="Upload ID"/>
+        
+        <Button onClick={proceed} title="Upload ID" />
+
     </div>
+    <input type="file" accept="image/*" id="upload" class="hidden" bind:this={fileInput} on:change={handleFileChange}/>
 </div>
 
 <style>
+    
     #big-container{
         width:100%;
     }
@@ -55,5 +68,10 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
         margin-left:7.5%;
         margin-right:7.5%;
     }
+
+    .hidden{
+        display: none !important;
+    }
+
 
 </style>
