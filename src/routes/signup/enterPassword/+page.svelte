@@ -34,7 +34,7 @@
 
 <div id="big-container">
    
-    <HeaderInfo title="Set up your login" subtitle="Pay cashless. Everytime."/>
+    <HeaderInfo title="Set up your login" subtitle="Pay cashless. Everytime." backLocation="/signup/enterName"/>
     
     <form method="POST" action="?/register"
         use:enhance={({ cancel }) => {
