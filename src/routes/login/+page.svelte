@@ -24,6 +24,10 @@
     */
 </script>
 
+<svelte:head>
+	<title>Token - Login</title>
+</svelte:head>
+
 <div id="big-container">
 	<HeaderInfo title="Login to your account" backLocation="/" />
 
@@ -76,9 +80,6 @@
 		position: absolute;
 		bottom: 0;
 		margin-bottom: 40px;
-	}
-	#password-wrapper {
-		margin-bottom: 350px;
 	}
 	@media (max-height: 500px) {
 		#password-wrapper {

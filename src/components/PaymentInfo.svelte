@@ -43,6 +43,7 @@
 		flex-direction: column;
 		align-items: center;
 		width: 100%;
+		margin-top: 1rem;
 	}
 	.payment {
 		display: flex;

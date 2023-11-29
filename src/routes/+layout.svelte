@@ -20,6 +20,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Token</title>
+</svelte:head>
+
 <div class="app">
 	<slot />
 </div>
@@ -32,5 +36,4 @@
 		justify-content: space-between;
 		min-height: 100vh;
 	}
-
 </style>

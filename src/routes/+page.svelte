@@ -2,7 +2,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Button from '../components/Button.svelte';
-	
+
 	function creatAccount() {
 		console.log('grah');
 		goto('/signup/enterPhone');
@@ -11,20 +11,15 @@
 	function logIn() {
 		goto('/login');
 	}
-
-
 </script>
 
 <svelte:head>
-	<title>Token - cashless cannabis payments</title>
+	<title>Token - Cashless Cannabis Payments</title>
 </svelte:head>
-
 
 <div id="big-container">
 	<div id="img-wrapper">
 		<img id="photo" src="/photos/photo1.png" alt="slideshow" />
-
-		
 	</div>
 
 	<div id="otherWrapper">
@@ -63,10 +58,9 @@
 		font-weight: 450;
 		justify-content: center;
 		display: flex;
-		padding:0px;
+		padding: 0px;
 		margin-left: 5%;
 		margin-right: 5%;
-		
 	}
 
 	.buttons {
