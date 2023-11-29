@@ -58,7 +58,7 @@
             {#if passwordError}
                 <p class="error-message">{passwordError}</p>
             {/if}
-            <TextInput bind:value={password} name = "password" placeholder="Password" verification="password"/>
+            <TextInput bind:value={password} name="password" placeholder="Password" verification="password"/>
         </div>
         
         <div id="button-wrapper">

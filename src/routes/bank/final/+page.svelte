@@ -2,7 +2,7 @@
     import { zipStore, bankStore} from '../myStores';
     import Button from '../../../components/Button.svelte';
     import HeaderInfo from '../../../components/HeaderInfo.svelte';
-
+    import Checkmark from '$lib/images/Checkmark.svg';
     import { enhance } from '$app/forms';
 </script>
 
@@ -12,6 +12,7 @@
         <input type="hidden" name="zipcode" value={$zipStore}>
         <input type="hidden" name="account-number" value= {$bankStore[0]}>
         <input type="hidden" name="routing-number" value= {$bankStore[1]}>
+        <img height={80} width={80} src={Checkmark} alt="Checkmark" />
         <div id="button-wrapper">
             <Button title = "Submit"/>
         </div>
