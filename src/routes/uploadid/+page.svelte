@@ -34,7 +34,6 @@
     
     <div id="button-wrapper">
         
-        <input type="file" accept="image/*" />
 
         <Button onClick={proceed} title="Upload ID" />
 
