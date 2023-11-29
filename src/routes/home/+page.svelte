@@ -8,13 +8,15 @@
 	function createOrder() {
 		goto('/order');
 	}
+
+	export let data;
 </script>
 
 <header>
 	<div class="logo">
 		<MiniLogo />
 	</div>
-	<h1>Welcome, {shop}!</h1>
+	<h1>Welcome{data.profile?.full_name ? `, ${data.profile?.full_name}` : ''}!</h1>
 </header>
 <main>
 	<PaymentInfo />

@@ -18,8 +18,11 @@
 </script>
 
 <div class="text-input-container">
-	<input type="text" bind:value on:input={handleInput} {placeholder} {name} required />
-
+	{#if name == 'password'}
+		<input type="password" bind:value on:input={handleInput} {placeholder} {name} required />
+	{:else}
+		<input type="text" bind:value on:input={handleInput} {placeholder} {name} required />
+	{/if}
 	<hr class="thin-line" />
 </div>
 
