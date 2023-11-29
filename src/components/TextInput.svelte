@@ -20,6 +20,16 @@
 <div class="text-input-container">
 	{#if name == 'password'}
 		<input type="password" bind:value on:input={handleInput} {placeholder} {name} required />
+	{:else if name == 'digits'}
+		<input
+			type="number"
+			pattern="[0-9]*"
+			bind:value
+			on:input={handleInput}
+			{placeholder}
+			{name}
+			required
+		/>
 	{:else}
 		<input type="text" bind:value on:input={handleInput} {placeholder} {name} required />
 	{/if}

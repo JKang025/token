@@ -6,6 +6,7 @@
 	import { amountStore } from '../../signup/stores.js';
 	let { supabase } = data;
 	$: ({ supabase } = data);
+	let payDiv: HTMLElement;
 
 	const startSession = (token: string) => {
 		// @ts-ignore
@@ -50,11 +51,24 @@
 				const { code } = response;
 				if (code === 'requested_pay_later') {
 					console.log('Place order anyway');
+					payDiv.innerHTML = 'Processing payment';
 				} else if (code === 'init_error') {
 					console.log('Initialization error');
+					payDiv.innerHTML = 'Payment processing submitted';
 				} else if (!code) {
 					console.log('Exit without action');
+					payDiv.innerHTML = 'Payment submitted - this could take some time';
+				} else {
+					payDiv.innerHTML = 'Payment submitted';
 				}
+				payDiv.style.display = 'flex';
+				payDiv.style.flexDirection = 'column';
+				payDiv.style.justifyContent = 'center';
+				payDiv.style.alignItems = 'center';
+				payDiv.style.padding = '1rem';
+				payDiv.style.width = '100%';
+				payDiv.style.fontSize = '1.5rem';
+				payDiv.style.textAlign = 'center';
 			}
 		});
 	};
@@ -70,7 +84,7 @@
 	<script type="text/javascript"></script>
 </svelte:head>
 
-<main id="pay" />
+<main bind:this={payDiv} id="pay" />
 
 <style>
 	main {
