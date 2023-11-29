@@ -24,7 +24,9 @@
 </script>
 
 <header>
-	<h1>Med Men</h1>
+	{#if data.profile}
+		<h1>{data.profile.full_name}</h1>
+	{/if}
 	<div class="back">
 		<a href="/home">
 			<X />

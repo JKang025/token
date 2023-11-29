@@ -35,40 +35,41 @@
 	}
 </script>
 
-<HeaderInfo backLocation="/home" />
-<main>
-	<div class="price">${price}</div>
-	<!-- Calculator layout -->
-	<div class="calculator">
-		<button on:click={() => addDigit('1')}>1</button>
-		<button on:click={() => addDigit('2')}>2</button>
-		<button on:click={() => addDigit('3')}>3</button>
-		<button on:click={() => addDigit('4')}>4</button>
-		<button on:click={() => addDigit('5')}>5</button>
-		<button on:click={() => addDigit('6')}>6</button>
-		<button on:click={() => addDigit('7')}>7</button>
-		<button on:click={() => addDigit('8')}>8</button>
-		<button on:click={() => addDigit('9')}>9</button>
-		<button on:click={() => addDigit('0')}>0</button>
-		<button
-			on:click={() => {
-				if (!price.includes('.')) {
-					price = price + '.';
-				}
-			}}>.</button
-		>
-		<button
-			on:click={() => {
-				price = price.slice(0, -1);
-				if (price.length == 0) {
-					price = '0';
-				}
-			}}>{'<'}</button
-		>
+<div class="container">
+	<HeaderInfo backLocation="/home" />
+	<main>
+		<div class="price">${price}</div>
+		<div class="calculator">
+			<button on:click={() => addDigit('1')}>1</button>
+			<button on:click={() => addDigit('2')}>2</button>
+			<button on:click={() => addDigit('3')}>3</button>
+			<button on:click={() => addDigit('4')}>4</button>
+			<button on:click={() => addDigit('5')}>5</button>
+			<button on:click={() => addDigit('6')}>6</button>
+			<button on:click={() => addDigit('7')}>7</button>
+			<button on:click={() => addDigit('8')}>8</button>
+			<button on:click={() => addDigit('9')}>9</button>
+			<button on:click={() => addDigit('0')}>0</button>
+			<button
+				on:click={() => {
+					if (!price.includes('.')) {
+						price = price + '.';
+					}
+				}}>.</button
+			>
+			<button
+				on:click={() => {
+					price = price.slice(0, -1);
+					if (price.length == 0) {
+						price = '0';
+					}
+				}}>{'<'}</button
+			>
+		</div>
+	</main>
+	<div class="footer">
+		<Button isLink onClick={() => generateCode()} title="Generate Code" />
 	</div>
-</main>
-<div class="footer">
-	<Button isLink onClick={() => generateCode()} title="Generate Code" />
 </div>
 
 <style>
@@ -86,9 +87,16 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-items: end;
 		padding: 1rem;
-		margin-bottom: 6rem;
+		margin-bottom: 8rem;
+	}
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+		position: relative;
 	}
 	.calculator {
 		display: grid;

@@ -1,7 +1,18 @@
-<script>
+<script lang="ts">
 	import X from '../../../components/X.svelte';
 	import logo from '$lib/images/Logo.svg';
 	export let data;
+
+	const convertDate = (timestamp: string) => {
+		const date = new Date(timestamp);
+		const month = date.toLocaleString('default', { month: 'long' });
+		const time = date.toLocaleString('default', {
+			hour: 'numeric',
+			minute: 'numeric',
+			hour12: true
+		});
+		return `${month} ${date.getDate()}, ${date.getFullYear()}, ${time}`;
+	};
 </script>
 
 <header>
@@ -26,7 +37,7 @@
 	</div>
 	<div>
 		<div class="gray">Transaction Details</div>
-		<div>{new Date(data.transaction.timestamp).toDateString()}</div>
+		<div>{convertDate(data.transaction.timestamp)}</div>
 	</div>
 	<!-- <div>
 		<div class="gray">Received from</div>
