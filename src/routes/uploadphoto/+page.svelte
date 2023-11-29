@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
     import Button from "../../components/Button.svelte";
-import HeaderInfo from "../../components/HeaderInfo.svelte";
+    import HeaderInfo from "../../components/HeaderInfo.svelte";
+
+    let fileInput: HTMLInputElement = {} as HTMLInputElement;
+
 
     function proceed(){
-        goto('/confirmlicense')
+        if(fileInput){
+            fileInput.click();
+        }
+        
+    }
+    function handleFileChange() {
+        if (fileInput && fileInput.files && fileInput.files.length > 0) {
+            goto('/confirmlicense')
+        }
     }
 </script>
 
@@ -22,10 +33,11 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
  
         
     </div>
-
     <div id="button-wrapper">
         <Button onClick={proceed} title="Upload Photo"/>
     </div>
+    <input type="file" accept="image/*" id="upload" class="hidden" bind:this={fileInput} on:change={handleFileChange}/>
+
 </div>
 
 <style>
@@ -40,7 +52,7 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
     }
 
     #img-wrapper{
-        margin-top: 30%;
+        margin-top: 20%;
     }
 
 
@@ -55,6 +67,10 @@ import HeaderInfo from "../../components/HeaderInfo.svelte";
         width:85%;
         margin-left:7.5%;
         margin-right:7.5%;
+    }
+
+    .hidden{
+        display: none !important;
     }
 
 </style>
