@@ -15,7 +15,7 @@
 
     <HeaderInfo showBack={true} backLocation='/signup/enterPassword'/>
     <div id=img-container>
-        <img src='photos/person.png' alt="guy"/>
+        <img src='photos/person.png' alt="guy" id="img"/>
     </div>
     <div id="main-text">
         <p>Verify your identity</p>
@@ -47,9 +47,10 @@
     }
 
     #img-container{
-        display: flex;
-        justify-content: center;
-        margin-top: 100px;
+        margin-top: 10%px;
+    }
+    #img{
+        margin-left:20%;
     }
     #big-container{
         width:100%;
@@ -64,6 +65,7 @@
         margin-bottom: 5px;
         margin-block-start: var(--margin-block-start);
         margin-block-end: var(--margin-block-end);
+        color:black;
     }
     #subtext{
         color: var(--color-text);

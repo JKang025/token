@@ -57,10 +57,10 @@
         width:90%;
         position: absolute;
         bottom: 0;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     #last-wrapper{
-        margin-bottom: 350px;;
+        margin-bottom: 350px;
     }
     #form{
         width:100%;

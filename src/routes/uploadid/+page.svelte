@@ -52,7 +52,7 @@
     }
 
     #img-wrapper{
-        margin-top: 30%;
+        margin-top: 20%;
     }
 
 
@@ -61,9 +61,9 @@
     }
 
     #button-wrapper{
-        margin-left:5%;
-        margin-right:5%;
-        width:90%;
+        margin-left:7.5%;
+        margin-right:7.5%;
+        width:85%;
         position: absolute;
         bottom: 0;
         margin-bottom: 30px;

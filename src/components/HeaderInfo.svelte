@@ -96,7 +96,7 @@
     #back-button{
         margin-left: 7.5%;
         margin-top:4%;
-        margin-bottom: 4%;
+        margin-bottom: 2%;
     }
 
     .bar{
@@ -113,9 +113,4 @@
         border-radius: 1px;
     }
 
-	#back-button {
-		margin-left: 7.5%;
-		margin-top: 30px;
-		margin-bottom: 0px;
-	}
 </style>

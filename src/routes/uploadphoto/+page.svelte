@@ -45,14 +45,21 @@
         width:100%;
     }
 
-    #img-wrapper, #main-text, #sub-text{
+     #main-text, #sub-text{
         margin-left: 7.5%;
         margin-right:7.5%;
         width:85%;
     }
 
     #img-wrapper{
-        margin-top: 20%;
+        margin-left: 12.5%;
+        margin-right:2.5%;
+        width:85%;
+
+    }
+
+    #img-wrapper{
+        margin-top: 10%;
     }
 
 

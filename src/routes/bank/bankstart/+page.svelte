@@ -43,8 +43,10 @@
     }
 
     #img-wrapper{
-        margin-top:10%;
+        margin-top:0%;
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     #main-text{
