@@ -10,24 +10,21 @@ export const actions = {
         const email = body.get('email');
         const password = body.get('password');
         
-		try {
-            const { data, error } = await locals.supabase.auth.signInWithPassword({
-                email: email as string,
-                password: password as string
-            });
+		
+        const { data, error } = await locals.supabase.auth.signInWithPassword({
+            email: email as string,
+            password: password as string
+        });
 
-            if (error) {
-                // Handle the error, e.g., by returning a specific response or setting an error message
-                console.error(error.message);
-                return fail(401, { error: error.message });
-            }
-
-
-            throw redirect(303, "/home");
-        } catch (err) {
-            // Handle any unexpected errors
-            return fail(500, { error: 'Internal Server Error' });
+        if (error) {
+            // Handle the error, e.g., by returning a specific response or setting an error message
+            console.error(error.message);
+            return fail(401, { error: error.message });
         }
+
+
+        throw redirect(303, "/home");
+        
 
 	}
 }

@@ -38,11 +38,14 @@
 					goto(result.location);
 				} else {
 					loginError = 'Invalid Credentials';
-					goto('/');
 				}
 			};
 		}}
 	>
+		{#if loginError}
+			<p class="error-message">{loginError}</p>
+		{/if}
+
 		<div id="email-wrapper" class="center">
 			<TextInput bind:value={email} name="email" placeholder="Email" />
 		</div>
@@ -55,9 +58,7 @@
 			<Button isLink title="Next" fill={true} />
 		</div>
 
-		{#if loginError}
-			<p class="error-message">{loginError}</p>
-		{/if}
+		
 	</form>
 </div>
 
@@ -84,6 +85,9 @@
 	.error-message {
 		color: red;
 		font-size: 14px;
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+		width:85%;
 	}
 	#big-container {
 		width: 100%;
