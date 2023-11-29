@@ -31,7 +31,7 @@
 						'content-type': 'application/json'
 					}
 				}).then((res) => res.json());
-				$amountStore = res.charge.amount / 100; // fees + order total_amount + tip
+				$amountStore = res2.charge.amount / 100; // fees + order total_amount + tip
 				goto('/success');
 			},
 			// @ts-ignore
