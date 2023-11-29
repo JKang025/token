@@ -57,8 +57,6 @@
 		<div id="button-wrapper">
 			<Button isLink title="Next" fill={true} />
 		</div>
-
-		
 	</form>
 </div>
 
@@ -82,14 +80,27 @@
 	#password-wrapper {
 		margin-bottom: 350px;
 	}
+	@media (max-height: 500px) {
+		#password-wrapper {
+			margin-bottom: 100px;
+		}
+	}
 	.error-message {
 		color: red;
 		font-size: 14px;
 		margin-left: 7.5%;
 		margin-right: 7.5%;
-		width:85%;
+		width: 85%;
 	}
 	#big-container {
 		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	form {
+		height: 100%;
+		flex: 1 1 auto;
+		position: relative;
 	}
 </style>
