@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>User Management</title>
+	<title>Token - cashless cannabis payments</title>
 </svelte:head>
 
 
