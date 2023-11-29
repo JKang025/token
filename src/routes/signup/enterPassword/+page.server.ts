@@ -19,7 +19,7 @@ export const actions = {
 		
 
         
-		const { data, err } = await locals.supabase.auth.signUp({
+		const { data, error } = await locals.supabase.auth.signUp({
             
             email: email as string,
             password: password as string,
@@ -32,9 +32,13 @@ export const actions = {
 			}
 			
         })
-        
 
-    
+		if(error){
+			console.error(error.message);
+            return fail(401, { error: error.message });
+		}
+
+        
 
         throw redirect(303, "/verify")
 

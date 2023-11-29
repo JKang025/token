@@ -3,6 +3,7 @@
     import Button from '../../../components/Button.svelte';
     import TextInput from '../../../components/TextInput.svelte';
     import HeaderInfo from '../../../components/HeaderInfo.svelte';
+    import { goto } from '$app/navigation';
 
     import { enhance } from '$app/forms';
 
@@ -14,6 +15,7 @@
 
     let passwordError = '';
     let emailError = '';
+    let createError ='';
 
     function isEmail(email : string) {
         var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
@@ -46,8 +48,21 @@
                 passwordError = "Please enter a password that is at least 6 characters long, uppercase letter, lowercase letter, number, special character";
                 cancel();
             }
+
+            return async ({ result }) => {
+				// `result` is an `ActionResult` object
+				console.log(result.type);
+				if (result.type === 'redirect') {
+					goto(result.location);
+				} else {
+					createError = 'Something went wrong with your account creation';
+				}
+			};
         }}>
         <div id="email-wrapper" class="center">
+            {#if createError}
+                <p class="error-message">{createError}</p>
+            {/if}
             {#if emailError}
                 <p class="error-message">{emailError}</p>
             {/if}
@@ -60,6 +75,8 @@
             {/if}
             <TextInput bind:value={password} name="password" placeholder="Password" verification="password"/>
         </div>
+
+        
         
         <div id="button-wrapper">
             <Button title= "Next" fill={true} />
