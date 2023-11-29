@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
+	import getToken from '$lib/getToken.js';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 	export let data;
 
-	const startSession = () => {
+	const startSession = (token: string) => {
 		// @ts-ignore
 		const sp = new SwifterPay();
 		sp.startSession({
@@ -16,13 +18,24 @@
 				console.log(response);
 				const res = await fetch('/api/order', {
 					method: 'POST',
-					body: JSON.stringify({ session_id: data.slug }),
+					body: JSON.stringify({ session_id: data.slug, token }),
 					headers: {
 						'content-type': 'application/json'
 					}
 				}).then((res) => res.json());
 				console.log(res);
-				// then, show success page
+				// res.consumer.firstName, res.consumer.lastName
+				// res.createdDate, res.totalAmount
+				const charge = await fetch('/api/charge_order', {
+					method: 'POST',
+					body: JSON.stringify({ order_id: res.order.id, token }),
+					headers: {
+						'content-type': 'application/json'
+					}
+				}).then((res) => res.json());
+				console.log(charge);
+				// charge.charge.track_number
+				goto('/success');
 			},
 			// @ts-ignore
 			onExit: (response) => {
@@ -38,8 +51,9 @@
 		});
 	};
 
-	onMount(() => {
-		startSession();
+	onMount(async () => {
+		const token = await getToken();
+		startSession(token);
 	});
 </script>
 

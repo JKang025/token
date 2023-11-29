@@ -1,29 +1,19 @@
 <script>
-	import MiniLogo from '../../components/MiniLogo.svelte';
 	import Button from '../../components/Button.svelte';
-	import PaymentInfo from '../../components/PaymentInfo.svelte';
-	import { goto } from '$app/navigation';
-	export let shop = 'Med Men';
-
-	function createOrder() {
-		goto('/order');
-	}
+	import HeaderInfo from '../../components/HeaderInfo.svelte';
+	import { amountStore } from '../signup/stores';
 </script>
 
-<header>
-	<div class="logo">
-		<MiniLogo />
-	</div>
-	<h1>Welcome, {shop}!</h1>
-</header>
 <main>
-	<PaymentInfo />
-	<PaymentInfo />
-	<PaymentInfo />
+	<div>Congratulations!</div>
+	<div>The transaction was successful</div>
+	<div>${$amountStore.toFixed(2)}</div>
+	<div>{new Date().toLocaleDateString('en-US')}</div>
 </main>
-<div class="footer">
-	<Button isLink onClick={() => createOrder()} title="Create New Order" />
-</div>
+
+<!-- <div class="footer">
+	<Button isLink onClick={() => generateCode()} title="Generate Code" />
+</div> -->
 
 <style>
 	header {
@@ -35,10 +25,6 @@
 		padding: 2.5rem 0 1rem 0;
 		border: 1px solid #d9d9d9;
 		box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
-	}
-	h1 {
-		font-size: 1.25rem;
-		font-weight: 600;
 	}
 	main {
 		display: flex;

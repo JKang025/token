@@ -2,8 +2,8 @@
 	import QRCode from './QRJS.svelte';
 	import Button from '../../../components/Button.svelte';
 	import X from '../../../components/X.svelte';
+	import { amountStore } from '../../signup/stores';
 	export let data;
-	export let price = '$0.00';
 </script>
 
 <header>
@@ -17,9 +17,9 @@
 <main>
 	<h3>Present Code</h3>
 	<div id="qrcode-container">
-		<QRCode codeValue={data.slug ?? 'google.com'} squareSize={300} />
+		<QRCode codeValue={data.slug ? `${data.url}/checkout/${data.slug}` : ''} squareSize={300} />
 	</div>
-	<div class="price">{price}</div>
+	<div class="price">${$amountStore.toFixed(2)}</div>
 	<div class="date">{new Date().toLocaleDateString('en-US')}</div>
 </main>
 <div class="footer">

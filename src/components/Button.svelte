@@ -3,17 +3,19 @@
 	export let fill = true;
 	export let size = 'full';
 	export let href: string | undefined = undefined;
+	export let isLink = false;
 	export let disabled = false;
 	export let onClick: () => void = () => {};
 </script>
 
-<button class:fill class:size={size == 'full'} on:click={onClick} disabled={disabled}>
-	{#if href}
-		<a {href}>{title}</a>
-	{:else}
-		{title}
-	{/if}
-</button>
+{#if href || isLink}
+	<a {href} class:size={size == 'full'}
+		><button class:fill class:size={size == 'full'} on:click={onClick} {disabled}>{title}</button
+		></a
+	>
+{:else}
+	<button class:fill class:size={size == 'full'} on:click={onClick} {disabled}>{title}</button>
+{/if}
 
 <style>
 	button {
@@ -30,7 +32,10 @@
 		text-decoration: none;
 		display: inline-block;
 		font-size: 16px;
-		width: 100%;
+		width: 50%;
+	}
+	a button {
+		cursor: pointer;
 	}
 	.fill {
 		background-color: #2c8152;
@@ -38,12 +43,14 @@
 		color: white;
 	}
 	.size {
-		padding: 0.75rem;
+		width: 100%;
 	}
 	a {
 		color: #2c8152;
+		cursor: pointer;
+		width: 50%;
 	}
-	.fill a {
+	a .fill {
 		color: white;
 	}
 </style>

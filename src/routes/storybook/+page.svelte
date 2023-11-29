@@ -4,11 +4,13 @@
 	import BankCard from '../../components/BankCard.svelte';
 	import Button from '../../components/Button.svelte';
 	import Delete from '../../components/Delete.svelte';
+	import HeaderInfo from '../../components/HeaderInfo.svelte';
 	import License from '../../components/License.svelte';
 	import X from '../../components/X.svelte';
 </script>
 
 <div>
+	<HeaderInfo title="Title" subtitle="Subtitle" />
 	<Add />
 	<Delete />
 	<Back />
