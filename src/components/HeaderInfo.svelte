@@ -1,15 +1,27 @@
 <script lang="ts">
+    import Back from '../components/Back.svelte'
 	export let title = ''; 
     export let subtitle = ''; 
+    export let showBack = true;
+    export let showImg = true;
+    export let backLocation = '';
 
   
     
 </script>
 
 <div class="big-container">
-    <div class="img-container">
-        <img src = "/photos/Logo.png" alt="logo">
-    </div>
+    {#if showBack}
+        <div id="back-button">
+            <Back link={backLocation}/>
+        </div>
+    {/if}
+    {#if showImg}
+        <div class="img-container">
+            <img src = "/photos/Logo.png" alt="logo">
+        </div>
+    {/if}
+    
    <p id="maintext">{title}</p>
    <p id="subtext">{subtitle}</p>
 </div>
@@ -46,8 +58,14 @@
 }
 
 img{
-    margin-top: 30px;
+    margin-top: 0px;
     margin-bottom: 30px;
+}
+
+#back-button{
+    margin-left: 7.5%;
+    margin-top:30px;
+    margin-bottom: 0px;
 }
 
 </style>

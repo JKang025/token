@@ -18,7 +18,7 @@
 </script>
 
 <form id="form" on:submit|preventDefault={handleSubmit}>
-    <HeaderInfo title="Enter your details" subtitle="You’ll never have to do this again."/>
+    <HeaderInfo title="Enter your details" subtitle="You’ll never have to do this again." backLocation='/signup/enterPhone'/>
     
     <div id="big-container">
    

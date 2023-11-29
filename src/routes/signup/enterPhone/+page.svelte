@@ -35,7 +35,7 @@
 <form id="form" on:submit|preventDefault={handleSubmit}>
     <div id="big-container">
    
-        <HeaderInfo title="Enter your phone" subtitle="We will need to verify that it's you!"/>
+        <HeaderInfo title="Enter your phone" subtitle="We will need to verify that it's you!" backLocation='/'/>
         <div id="textinput-wrapper">
             {#if errorMessage}
                 <p class="error-message">{errorMessage}</p>
