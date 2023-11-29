@@ -2,7 +2,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Button from '../components/Button.svelte';
-
+	import Swiper from 'swiper';
+	
 	function creatAccount() {
 		console.log('grah');
 		goto('/signup/enterPhone');
@@ -11,15 +12,20 @@
 	function logIn() {
 		goto('/login');
 	}
+
+
 </script>
 
 <svelte:head>
 	<title>User Management</title>
 </svelte:head>
 
+
 <div id="big-container">
 	<div id="img-wrapper">
 		<img id="photo" src="/photos/photo1.png" alt="slideshow" />
+
+		
 	</div>
 
 	<div id="otherWrapper">
