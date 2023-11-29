@@ -2,7 +2,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Button from '../components/Button.svelte';
-	import Swiper from 'swiper';
 	
 	function creatAccount() {
 		console.log('grah');
