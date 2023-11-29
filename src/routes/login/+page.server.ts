@@ -23,7 +23,7 @@ export const actions = {
             }
 
 
-            throw redirect(303, "/");
+            throw redirect(303, "/home");
         } catch (err) {
             // Handle any unexpected errors
             return fail(500, { error: 'Internal Server Error' });

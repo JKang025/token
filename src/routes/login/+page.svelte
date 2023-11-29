@@ -34,7 +34,7 @@
 
 <div id="big-container">
    
-    <HeaderInfo title="Login to your account" />
+    <HeaderInfo title="Login to your account" backLocation="/"/>
     
     <form method="POST" action="?/login"
     use:enhance={({ formElement, formData, action, cancel }) => {

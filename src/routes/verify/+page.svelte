@@ -26,7 +26,7 @@
 
     </div>
     <div id="button-wrapper">
-        <Button title= 'View TOS' fill={false}/>
+        <Button onClick={proceed} title= 'View TOS' fill={false}/>
     </div>
     
 </div>
