@@ -2,9 +2,13 @@
 	export let title = 'Button';
 	export let fill = true;
 	export let size = 'full';
+	export let disabled = false;
+	export let onClick: () => void = () => {};
+	
+	
 </script>
 
-<button class:fill class:size={size == 'full'}>{title}</button>
+<button on:click={onClick} disabled={disabled} class:fill class:size={size == 'full'}>{title}</button>
 
 <style>
 	button {

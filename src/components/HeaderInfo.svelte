@@ -8,7 +8,7 @@
 
 <div class="big-container">
     <div class="img-container">
-        <img src = "/photos/Logo.png">
+        <img src = "/photos/Logo.png" alt="logo">
     </div>
    <p id="maintext">{title}</p>
    <p id="subtext">{subtitle}</p>

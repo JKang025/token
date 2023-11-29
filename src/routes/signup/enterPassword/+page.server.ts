@@ -11,39 +11,32 @@ export const actions = {
         const email = body.get('email');
         const password = body.get('password');
 		const phone = body.get('phone');
-		const firstName = body.get('firstName');
-		const lastName = body.get('lastName');
+		const fullName = body.get('firstName') + ' ' + body.get('lastName');
         console.log(email);
 		console.log(password);
 		console.log(phone);
-		console.log(firstName);
-		console.log(lastName);
+		console.log(fullName);
+		
 
         
 		const { data, err } = await locals.supabase.auth.signUp({
             
             email: email as string,
             password: password as string,
+			
 			options: {
 				data: {
-				  phone: phone as string
+				  phone: phone as string,
+				  full_name: fullName as string
 				}
 			}
+			
         })
         
-		if (err) {
-			if (err.status === 400) {
-				return fail(400, {
-					error: "Invalid email or password",
-				})
-			}
-			return fail(500, {
-				error: "Server error. Please try again later.",
-			})
-		}
+
     
 
-        //throw redirect(303, "/signup/enterPhone")
+        throw redirect(303, "/signup/enterPhone")
 
 	}
 }

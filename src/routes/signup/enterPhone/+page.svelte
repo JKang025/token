@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { writable } from 'svelte/store';
     import { goto } from '$app/navigation';
     import { phoneStore } from '../stores.js';
@@ -6,14 +6,27 @@
     import TextInput from '../../../components/TextInput.svelte';
     import HeaderInfo from '../../../components/HeaderInfo.svelte';
 
-    let phone = '';
-
     let textValue = '';
 
+    let errorMessage = '';
+
+
+
+    $: isValid = isphone(textValue);
+
     const handleSubmit = () => {
+        if (!isValid) {
+            errorMessage = 'Invalid phone number. Please enter a 10-digit number.';
+            return; // Prevent further action if not valid
+        }
         phoneStore.set(textValue); // Update the store's value
         goto('/signup/enterName'); // Redirect to password form
     };
+
+    function isphone(phoneNumber : string) {
+      var regex = /^\d{10}$/;
+      return regex.test(phoneNumber);
+    }
 
 </script>
 
@@ -24,7 +37,10 @@
    
         <HeaderInfo title="Enter your phone" subtitle="We will need to verify that it's you!"/>
         <div id="textinput-wrapper">
-            <TextInput bind:value={textValue} placeholder="Phone Number" />
+            {#if errorMessage}
+                <p class="error-message">{errorMessage}</p>
+            {/if}
+            <TextInput bind:value={textValue} placeholder="Phone Number" verification="phone"/>
         </div>
         
         <div id="button-wrapper">
@@ -56,5 +72,10 @@
     #tos{
         font: 2px;
         color: #6E6E6E;
+    }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
     }
 </style>

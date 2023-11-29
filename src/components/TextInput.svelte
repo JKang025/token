@@ -3,26 +3,42 @@
   export let value = ''; // Input's value
   export let type = 'text';
   export let name = '';
+  export let verification = '';
+  let errorMessage = '';
 
     const handleInput = (event: Event) => {
+      
         const target = event.target as HTMLInputElement; // Type casting
         value = target.value;
+       
     }
+
+    
+
+    function isValidEmail(email: string) {
+      var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return regex.test(email);
+    }
+
 
 
     
 </script>
 
 <div class="text-input-container">
-    <input 
-      type='text'
-      bind:value={value}
-      on:input={handleInput}
-      placeholder={placeholder}
-      name = {name}
-     required/>
-    <hr class="thin-line">
-  </div>
+  
+  <input 
+    type='text'
+    bind:value={value}
+    on:input={handleInput}
+    placeholder={placeholder}
+    name = {name}
+  required/>
+
+  
+  <hr class="thin-line">
+
+</div>
 
   <style>
     .text-input-container {
