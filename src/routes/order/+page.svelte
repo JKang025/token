@@ -21,7 +21,7 @@
 				'content-type': 'application/json'
 			}
 		}).then((res) => res.json());
-		console.log(res);
+		// console.log(res);
 		goto(`/qrcode/${res.id}`);
 	}
 

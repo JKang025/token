@@ -33,9 +33,15 @@
 		display: inline-block;
 		font-size: 16px;
 		width: 50%;
+		max-width: 40rem;
 	}
 	a button {
 		cursor: pointer;
+	}
+	a {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.fill {
 		background-color: #2c8152;

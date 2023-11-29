@@ -23,7 +23,7 @@
 	<div class="date">{new Date().toLocaleDateString('en-US')}</div>
 </main>
 <div class="footer">
-	<Button fill={true} title="Scan Complete" />
+	<Button href="/success?t=business" fill={true} title="Scan Complete" />
 </div>
 
 <style>

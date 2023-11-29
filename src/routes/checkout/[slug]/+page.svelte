@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	export let data;
+	import { amountStore } from '../../signup/stores.js';
 
 	const startSession = (token: string) => {
 		// @ts-ignore
@@ -14,8 +15,6 @@
 			renderInModal: false,
 			// @ts-ignore
 			onComplete: async (response) => {
-				console.log('Session completed successsfully');
-				console.log(response);
 				const res = await fetch('/api/order', {
 					method: 'POST',
 					body: JSON.stringify({ session_id: data.slug, token }),
@@ -23,18 +22,17 @@
 						'content-type': 'application/json'
 					}
 				}).then((res) => res.json());
-				console.log(res);
+				// console.log(res);
 				// res.consumer.firstName, res.consumer.lastName
-				// res.createdDate, res.totalAmount
-				const charge = await fetch('/api/charge_order', {
+				// res.createdDate, res.referenceId
+				$amountStore = res.totalAmount / 100; // fees + orderAmount + tip
+				await fetch('/api/charge_order', {
 					method: 'POST',
 					body: JSON.stringify({ order_id: res.order.id, token }),
 					headers: {
 						'content-type': 'application/json'
 					}
 				}).then((res) => res.json());
-				console.log(charge);
-				// charge.charge.track_number
 				goto('/success');
 			},
 			// @ts-ignore
