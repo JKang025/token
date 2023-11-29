@@ -2,9 +2,16 @@
 	export let title = 'Button';
 	export let fill = true;
 	export let size = 'full';
+	export let href: string | undefined = undefined;
 </script>
 
-<button class:fill class:size={size == 'full'}>{title}</button>
+<button class:fill class:size={size == 'full'}>
+	{#if href}
+		<a {href}>{title}</a>
+	{:else}
+		{title}
+	{/if}
+</button>
 
 <style>
 	button {
@@ -15,12 +22,13 @@
 		border-color: #2c8152;
 		color: #2c8152;
 		font-size: 1.25rem;
-		padding: 0.75rem 4rem;
+		padding: 0.75rem;
 		text-align: center;
 		font-weight: 600;
 		text-decoration: none;
 		display: inline-block;
 		font-size: 16px;
+		width: 100%;
 	}
 	.fill {
 		background-color: #2c8152;
@@ -28,6 +36,12 @@
 		color: white;
 	}
 	.size {
-		padding: 0.75rem 8rem;
+		padding: 0.75rem;
+	}
+	a {
+		color: #2c8152;
+	}
+	.fill a {
+		color: white;
 	}
 </style>
