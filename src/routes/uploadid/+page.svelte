@@ -33,12 +33,10 @@
 
     
     <div id="button-wrapper">
-        
-
+        <input type="file" accept="image/*" id="upload" class="hidden" bind:this={fileInput} on:change={handleFileChange}/>
         <Button onClick={proceed} title="Upload ID" />
 
     </div>
-    <input type="file" accept="image/*" id="upload" class="hidden" bind:this={fileInput} on:change={handleFileChange}/>
 </div>
 
 <style>
@@ -63,11 +61,12 @@
     }
 
     #button-wrapper{
+        margin-left:5%;
+        margin-right:5%;
+        width:90%;
         position: absolute;
-        bottom:30px;
-        width:85%;
-        margin-left:7.5%;
-        margin-right:7.5%;
+        bottom: 0;
+        margin-bottom: 30px;
     }
 
     .hidden{
