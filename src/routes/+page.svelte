@@ -1,24 +1,79 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
-	import { Auth } from '@supabase/auth-ui-svelte';
-	import { ThemeSupa } from '@supabase/auth-ui-shared';
+	import { goto } from '$app/navigation';
+import Button from '../components/Button.svelte';
 
-	export let data;
+	function creatAccount(){
+		console.log("grah");
+		goto('/signup/enterPhone');
+	}
+
+	function logIn(){
+		goto('/login')
+	}
+
 </script>
 
 <svelte:head>
 	<title>User Management</title>
 </svelte:head>
 
-<div class="row flex-center flex">
-	<div class="col-6 form-widget">
-		<Auth
-			supabaseClient={data.supabase}
-			view="magic_link"
-			redirectTo={`${data.url}/auth/callback`}
-			showLinks={false}
-			appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
-		/>
-		<h1>HOME</h1>
+<div id="big-container">
+	<div id="img-wrapper">
+		<img id="photo" src = "/photos/photo1.png" alt="slideshow"/>
 	</div>
+
+	<div id="otherWrapper">
+		<div id="text-and-button">
+			<p id ="main-text">Introducing a cashless<br> way to pay for cannabis</p>
+			<div class="buttons">
+				<Button onClick={creatAccount} title="Create Account" fill={true} />
+			</div>
+			<div class="buttons">
+				<Button onClick={logIn} title="Login" fill={false} />
+			</div>
+		</div>
+
+	</div>
+	
 </div>
+
+<style>
+	:root{
+        --color-text: solid black;
+    }
+	#text-and-button{
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+		width:85%;
+		margin-bottom: 30px;
+		
+	}
+	#otherWrapper{
+		position:absolute;
+		background-color: #F8FFF6;
+		bottom:0px;
+		width:100%;
+
+	}
+	#main-text{
+		font-size:27px;
+		margin-left:5%;
+		margin-right:5%;
+		color: var(--color-text);
+		font-weight: 450;
+	}
+
+	.buttons{
+		margin-top: 20px;
+	}
+
+	#img-wrapper{
+		width:100%;
+	}
+	
+	#photo{
+
+	}
+	
+</style>

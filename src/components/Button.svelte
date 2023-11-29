@@ -3,9 +3,11 @@
 	export let fill = true;
 	export let size = 'full';
 	export let href: string | undefined = undefined;
+	export let disabled = false;
+	export let onClick: () => void = () => {};
 </script>
 
-<button class:fill class:size={size == 'full'}>
+<button class:fill class:size={size == 'full'} on:click={onClick} disabled={disabled}>
 	{#if href}
 		<a {href}>{title}</a>
 	{:else}
