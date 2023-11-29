@@ -51,7 +51,7 @@
 		margin-bottom: 30px;
 	}
 	#otherWrapper {
-		position: relative;
+		position: absolute;
 		background-color: #f8fff6;
 		bottom: 0px;
 		width: 100%;
