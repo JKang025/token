@@ -29,7 +29,7 @@
 
 	<div id="otherWrapper">
 		<div id="text-and-button">
-			<p id="main-text">Introducing a cashless<br /> way to pay for cannabis</p>
+			<p id="main-text">Introducing a cashless way to pay for cannabis</p>
 			<div class="buttons">
 				<Button isLink onClick={creatAccount} title="Create Account" fill={true} />
 			</div>
@@ -51,17 +51,22 @@
 		margin-bottom: 30px;
 	}
 	#otherWrapper {
-		position: absolute;
+		position: relative;
 		background-color: #f8fff6;
 		bottom: 0px;
 		width: 100%;
 	}
 	#main-text {
 		font-size: 27px;
-		margin-left: 5%;
-		margin-right: 5%;
+
 		color: var(--color-text);
 		font-weight: 450;
+		justify-content: center;
+		display: flex;
+		padding:0px;
+		margin-left: 5%;
+		margin-right: 5%;
+		
 	}
 
 	.buttons {
@@ -82,5 +87,7 @@
 	}
 	#big-container {
 		width: 100%;
+		height: 100%;
+		overflow: hidden;
 	}
 </style>
