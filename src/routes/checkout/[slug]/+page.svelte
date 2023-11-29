@@ -23,9 +23,8 @@
 					}
 				}).then((res) => res.json());
 				// console.log(res);
-				// res.consumer.firstName, res.consumer.lastName
-				// res.createdDate, res.referenceId
-				$amountStore = res.totalAmount / 100; // fees + orderAmount + tip
+				// res.order.create_date, res.order.track_number
+				$amountStore = res.order.total_amount / 100; // fees + orderAmount + tip
 				await fetch('/api/charge_order', {
 					method: 'POST',
 					body: JSON.stringify({ order_id: res.order.id, token }),
