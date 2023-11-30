@@ -19,7 +19,7 @@
 
 <div id="big-container">
 	<div id="img-wrapper">
-		<img id="photo" src="/photos/photo1.png" alt="slideshow" />
+		<!-- <img id="photo" src="/photos/photo1.png" alt="slideshow" /> -->
 	</div>
 
 	<div id="otherWrapper">
@@ -62,13 +62,136 @@
 		margin-left: 5%;
 		margin-right: 5%;
 	}
-
+	#img-wrapper {
+		width: 100%;
+		height: 60%;
+		background-image: url('/photos/photo1.png');
+		background-size: cover;
+		background-position: center center;
+		animation: slides 20s linear infinite;
+		-webkit-animation: slides 20s linear infinite;
+		-moz-animation: slides 20s linear infinite;
+		-o-animation: slides 20s linear infinite;
+		-ms-animation: slides 20s linear infinite;
+	}
+	@-webkit-keyframes slides {
+		from {
+			background: url('/photos/photo1.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		18% {
+			background: url('/photos/photo1.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		20% {
+			background: url('/photos/photo1.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		22% {
+			/* switch to 2 */
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		25% {
+			/* fully show 2 */
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		43% {
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		45% {
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		47% {
+			/* switch to 3 */
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		50% {
+			/* fully show 3 */
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		68% {
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		70% {
+			background: url('/photos/photo2.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		72% {
+			/* switch to 3 */
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		75% {
+			/* fully show 3 */
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		93% {
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+		95% {
+			background: url('/photos/photo3.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		97% {
+			/* switch to 1 */
+			background: url('/photos/photo1.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 0;
+		}
+		to {
+			background: url('/photos/photo1.png');
+			background-size: cover;
+			background-position: center center;
+			opacity: 1;
+		}
+	}
 	.buttons {
 		margin-top: 20px;
 	}
 
 	#img-wrapper {
 		width: 100%;
+		height: 100%;
 		overflow: hidden;
 	}
 
@@ -81,7 +204,7 @@
 	}
 	#big-container {
 		width: 100%;
-		height: 100%;
+		height: 60vh;
 		overflow: hidden;
 	}
 </style>
